@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('register', function () {return view('register'); })->name('create-user');
 Route::post('register', [UserController::class, 'store'])->name('store-user');
+Route::view('login', 'login')->name('login-user');
+Route::view('reset/password', 'reset-password')->name('reset-password');
