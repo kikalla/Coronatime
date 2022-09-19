@@ -20,3 +20,4 @@ Route::view('login', 'login')->name('login-user');
 Route::view('confirmation', 'confirmation')->name('confirmation');
 Route::view('reset/password', 'reset-password')->name('reset-password');
 Route::get('/verify', [UserController::class, 'verifyUser'])->name('verify-user');
+Route::view('/', 'home')->name('home');
