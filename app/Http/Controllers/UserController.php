@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddUserRequest;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
-	public function store(AddUserRequest $request)
+	public function store(AddUserRequest $request): RedirectResponse
 	{
 		$user = User::create([
 			'username'          => $request->username,
@@ -25,7 +27,7 @@ class UserController extends Controller
 		return redirect(route('show-confirmation'));
 	}
 
-	public function verifyUser(Request $request)
+	public function verifyUser(Request $request): RedirectResponse
 	{
 		$verification_code = \Illuminate\Support\Facades\Request::get('code');
 		$user = User::where(['verification_code' => $verification_code])->first();
@@ -37,7 +39,7 @@ class UserController extends Controller
 		return redirect('/login');
 	}
 
-	public function create()
+	public function create(): View
 	{
 		return view('register');
 	}

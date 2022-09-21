@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
-	public function login(LoginRequest $request)
+	public function login(LoginRequest $request): RedirectResponse
 	{
 		$fieldType = filter_var($request->login_id, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 		if ($fieldType == 'email')
@@ -30,7 +31,7 @@ class LoginController extends Controller
 		return redirect('/login');
 	}
 
-	public function logout()
+	public function logout(): RedirectResponse
 	{
 		auth()->logout();
 		return redirect('/login');
