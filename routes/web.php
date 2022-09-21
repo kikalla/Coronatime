@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('register', function () {return view('register'); })->name('create-user');
-Route::post('register', [UserController::class, 'store'])->name('store-user');
-Route::view('login', 'login')->name('login-user');
-Route::view('confirmation', 'confirmation')->name('confirmation');
-Route::view('reset/password', 'reset-password')->name('reset-password');
-Route::get('/verify', [UserController::class, 'verifyUser'])->name('verify-user');
-Route::view('/', 'home')->name('home');
+Route::controller(UserController::class)->group(function () {
+	Route::get('register', 'create')->name('create-user')->middleware('guest');
+	Route::post('register', 'store')->name('store-user');
+	Route::get('/verify', 'verifyUser')->name('verify-user');
+});
+
+Route::view('login', 'login')->name('show-login-user')->middleware('guest');
+Route::post('login', [LoginController::class, 'login'])->name('login')->middleware('guest');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout-user')->middleware('auth');
+Route::view('confirmation', 'confirmation')->name('show-confirmation');
+Route::view('reset/password', 'reset-password')->name('show-reset-password');
+Route::get('/', function (User $user) {return view('home', ['user' => $user->where('id', auth()->id())->first()]); })->name('home')->middleware('verified');
+Route::view('/verify-first', 'mail.verify-email', )->name('verify-email');

@@ -22,7 +22,7 @@ class UserController extends Controller
 			MailController::sendSingupEmail($user->name, $user->email, $user->verification_code);
 		}
 
-		return redirect(route('confirmation'));
+		return redirect(route('show-confirmation'));
 	}
 
 	public function verifyUser(Request $request)
@@ -34,6 +34,11 @@ class UserController extends Controller
 			$user->is_verified = 1;
 			$user->save();
 		}
-		return redirect('login');
+		return redirect('/login');
+	}
+
+	public function create()
+	{
+		return view('register');
 	}
 }

@@ -15,8 +15,17 @@
                 <option value="en">En</option>
                 <option value="ka">Georgian</option>
             </select>
-            <h2 class="ml-[25%] mob:ml-[10%]">giorgi</h2>
-            <a class="ml-[25%] mob:ml-[10%]" href="{{route('login-user')}}">Login</a>
+            <h2 class="ml-[25%] mob:ml-[10%]">{{$user->username}}</h2>
+            @guest
+            <a class="ml-[25%] mob:ml-[10%]" href="{{route('show-login-user')}}">Login</a>
+            @endguest
+            
+            @auth
+            <form class="ml-[25%] mob:ml-[10%]" method="POST" action="{{route('logout-user')}}">
+            @csrf
+            <button type="submit">Logout</button>
+            </form>
+            @endauth
         </div>
     </header>
     <div class="border-b-2 border-[#F6F6F7] mt-[1%]"></div>

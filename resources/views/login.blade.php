@@ -14,12 +14,12 @@
             <h2 class="font-bold text-xl 2xl:text-4xl my-[3%]">Welcome back</h2>
             <p class="text-[#808189]">Welcome back! Please enter your details</p>
 
-            <form action="{{route('store-user')}}" method="POST">
+            <form action="" method="POST">
                 @csrf
                 <div class="flex flex-col my-[5%] mob:my-[7%]">
-                    <label class="font-bold" for="username">Username</label>
-                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="Enter unique username or email" type="text" name="username">
-                    @error('username')
+                    <label class="font-bold" for="login_id">Email or Username</label>
+                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="Enter unique Email or Username" type="text" name="login_id">
+                    @error('login_id')
                     <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>
                     @enderror
                 </div>
@@ -32,12 +32,11 @@
                     @enderror
                 </div>
 
-
-                <div class="flex items-center my-[5%]">
+                <!-- <div class="flex items-center my-[5%]">
                     <input class="mr-[2%] w-[5%]" type="checkbox" name="remember">
                     <p class="font-bold mob:p-[3%] whitespace-nowrap"> Remember this device</p>
-                    <a href="{{route('reset-password')}}" class="text-[#2029F3] 2xl:ml-[8%] lg:ml-[30%] mob:ml-[1%] font-extrabold whitespace-nowrap">Forgot password?</a>
-                </div>
+                    <a href="{{route('show-reset-password')}}" class="text-[#2029F3] 2xl:ml-[8%] lg:ml-[30%] mob:ml-[1%] font-extrabold whitespace-nowrap">Forgot password?</a>
+                </div> -->
                 
                 <button class="hover:scale-[99%] w-[100%] text-white font-extrabold rounded-xl bg-[#0FBA68] p-[3%] mb-[3%] mob:my-[5%] mob:p-[5%]" type="submit">SIGN UP</button>
             </form>
