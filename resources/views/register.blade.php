@@ -54,7 +54,7 @@
 
             <div class="flex justify-center">
                 <p>Already have an account?</p>
-                <a class="ml-[1%] font-bold" href="{{route('show-login-user')}}">Log in</a>
+                <a class="ml-[1%] font-bold" href="{{route('login.show')}}">Log in</a>
             </div>
         </div>
     </section>    

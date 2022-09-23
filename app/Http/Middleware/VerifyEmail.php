@@ -17,13 +17,13 @@ class VerifyEmail
 	 */
 	public function handle(Request $request, Closure $next)
 	{
-		if (auth()->user() === null)
+		if (!auth()->user())
 		{
-			return redirect('/login');
+			return redirect(route('login.show'));
 		}
 		if (auth()->user()->is_verified !== 1)
 		{
-			return redirect('/verify-first');
+			return redirect(route('verify-email'));
 		}
 		return $next($request);
 	}

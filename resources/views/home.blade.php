@@ -17,11 +17,11 @@
             </select>
             <h2 class="ml-[25%] mob:ml-[10%]">{{$user->username}}</h2>
             @guest
-            <a class="ml-[25%] mob:ml-[10%]" href="{{route('show-login-user')}}">Login</a>
+            <a class="ml-[25%] mob:ml-[10%]" href="{{route('login.show')}}">Login</a>
             @endguest
             
             @auth
-            <form class="ml-[25%] mob:ml-[10%]" method="POST" action="{{route('logout-user')}}">
+            <form class="ml-[25%] mob:ml-[10%]" method="POST" action="{{route('user.logout')}}">
             @csrf
             <button type="submit">Logout</button>
             </form>

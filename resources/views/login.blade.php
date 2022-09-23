@@ -35,7 +35,7 @@
                 <!-- <div class="flex items-center my-[5%]">
                     <input class="mr-[2%] w-[5%]" type="checkbox" name="remember">
                     <p class="font-bold mob:p-[3%] whitespace-nowrap"> Remember this device</p>
-                    <a href="{{route('show-reset-password')}}" class="text-[#2029F3] 2xl:ml-[8%] lg:ml-[30%] mob:ml-[1%] font-extrabold whitespace-nowrap">Forgot password?</a>
+                    <a href="{{route('reset-password.show')}}" class="text-[#2029F3] 2xl:ml-[8%] lg:ml-[30%] mob:ml-[1%] font-extrabold whitespace-nowrap">Forgot password?</a>
                 </div> -->
                 
                 <button class="hover:scale-[99%] w-[100%] text-white font-extrabold rounded-xl bg-[#0FBA68] p-[3%] mb-[3%] mob:my-[5%] mob:p-[5%]" type="submit">SIGN UP</button>
@@ -43,7 +43,7 @@
 
             <div class="flex justify-center">
                 <p>Don’t have and account?</p>
-                <a class="ml-[1%] font-bold " href="{{route('create-user')}}">Sign up for free</a>
+                <a class="ml-[1%] font-bold " href="{{route('user.create')}}">Sign up for free</a>
             </div>
         </div>
     </section>    

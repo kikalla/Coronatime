@@ -13,7 +13,7 @@
         <div class="flex flex-col items-center">
             <h2 class="font-extrabold text-center text-xl 2xl:text-4xl mb-[20%] mt-[60%]">Reset Password</h2>
 
-            <form class="w-[150%]" action="{{route('store-user')}}" method="POST">
+            <form class="w-[150%]" action="{{route('user.store')}}" method="POST">
                 @csrf
                 <div class="flex flex-col mb-[15%] mob:my-[7%]">
                     <label class="font-bold" for="email">Email</label>

@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddUserRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class UserController extends Controller
 {
@@ -24,10 +22,10 @@ class UserController extends Controller
 			MailController::sendSingupEmail($user->name, $user->email, $user->verification_code);
 		}
 
-		return redirect(route('show-confirmation'));
+		return redirect(route('confirmation.show'));
 	}
 
-	public function verifyUser(Request $request): RedirectResponse
+	public function verifyUser(): RedirectResponse
 	{
 		$verification_code = \Illuminate\Support\Facades\Request::get('code');
 		$user = User::where(['verification_code' => $verification_code])->first();
@@ -36,11 +34,6 @@ class UserController extends Controller
 			$user->is_verified = 1;
 			$user->save();
 		}
-		return redirect('/login');
-	}
-
-	public function create(): View
-	{
-		return view('register');
+		return redirect(route('login.show'));
 	}
 }

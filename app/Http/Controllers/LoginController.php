@@ -10,30 +10,17 @@ class LoginController extends Controller
 	public function login(LoginRequest $request): RedirectResponse
 	{
 		$fieldType = filter_var($request->login_id, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-		if ($fieldType == 'email')
-		{
-			[
-				$fieldType => 'required|min:3',
-				'password' => 'required',
-			];
-		}
-		else
-		{
-			[
-				$fieldType => 'required|min:3',
-				'password' => 'required',
-			];
-		}
+
 		if (auth()->attempt([$fieldType => $request->login_id, 'password' => $request->password]))
 		{
 			return redirect('/');
 		}
-		return redirect('/login');
+		return redirect(route('login.show'));
 	}
 
 	public function logout(): RedirectResponse
 	{
 		auth()->logout();
-		return redirect('/login');
+		return redirect(route('login.show'));
 	}
 }

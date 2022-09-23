@@ -15,7 +15,7 @@
             <p>Verify Email First</p>
         </div>
         @auth
-            <form method="POST" action="{{route('logout-user')}}">
+            <form method="POST" action="{{route('user.logout')}}">
             @csrf
             <button class="mt-[20%] p-[15%] hover:scale-[99%] text-white font-extrabold rounded-xl bg-[#0FBA68]" type="submit">Logout</button>
             </form>
