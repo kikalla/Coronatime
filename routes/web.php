@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -29,3 +30,5 @@ Route::view('confirmation', 'confirmation')->name('confirmation.show');
 Route::view('reset/password', 'reset-password')->name('reset-password.show');
 Route::get('/', function (User $user) {return view('home', ['user' => $user->where('id', auth()->id())->first()]); })->name('home')->middleware('verified');
 Route::view('/verify-first', 'mail.verify-email', )->name('verify-email');
+
+Route::get('api', [CountryController::class, 'getData']);
