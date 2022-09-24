@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddUserRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Request;
 
 class UserController extends Controller
 {
@@ -27,8 +28,7 @@ class UserController extends Controller
 
 	public function verifyUser(): RedirectResponse
 	{
-		$verification_code = \Illuminate\Support\Facades\Request::get('code');
-		$user = User::where(['verification_code' => $verification_code])->first();
+		$user = User::where(['verification_code' => Request::get('code')])->first();
 		if ($user != null)
 		{
 			$user->is_verified = 1;
