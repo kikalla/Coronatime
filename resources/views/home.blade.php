@@ -45,17 +45,17 @@
             <div class="w-[30%] h-[100%] bg-opacity-[8%] rounded-md bg-[#2029F3] flex flex-col justify-center items-center mob:w-[90%] mob:mb-[10px] mob:py-[3%] mob:h-[155px] ">
                 <img class="w-[30%]" src="images/Vector1.svg" alt="vector">
                 <p class="my-[4%]">New cases</p>
-                <p class="font-black text-3xl 2xl:text-5xl text-[#2029f3]">785.952</p>
+                <p class="font-black text-3xl 2xl:text-5xl text-[#2029f3]">{{$confirmed}}</p>
             </div>
             <div class="w-[30%] h-[100%] bg-opacity-[8%] rounded-md mx-[2%] bg-[#0FBA68] flex flex-col justify-center items-center mob:w-[90%] mob:mb-[10px] mob:py-[3%] mob:h-[155px] ">
                 <img class="w-[30%]" src="images/Vector2.svg" alt="vector">
                 <p class="my-[4%]">Recovered</p>
-                <p class="font-black text-3xl 2xl:text-5xl text-[#0FBA68]">785.952</p>
+                <p class="font-black text-3xl 2xl:text-5xl text-[#0FBA68]">{{$recovered}}</p>
             </div>
             <div class="w-[30%] h-[100%] bg-opacity-[8%] rounded-md bg-[#EAD621] flex flex-col justify-center items-center mob:w-[90%] mob:mb-[10px] mob:py-[3%] mob:h-[155px] ">
                 <img class="w-[30%]" src="images/Vector3.svg" alt="vector">
                 <p class="my-[4%]">Death</p>
-                <p class="font-black text-3xl 2xl:text-5xl text-[#EAD621]">785.952</p>
+                <p class="font-black text-3xl 2xl:text-5xl text-[#EAD621]">{{$deaths}}</p>
             </div>
         </div>
     </section>

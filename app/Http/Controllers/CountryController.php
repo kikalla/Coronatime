@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 
 class CountryController extends Controller
@@ -30,5 +31,28 @@ class CountryController extends Controller
 				'deaths'    => $decode->deaths,
 			]);
 		}, $codes, $data);
+	}
+
+	public function getSum(User $user, Country $country)
+	{
+		$countries = $country->all();
+
+		$confirmed = 0;
+		$deaths = 0;
+		$recovered = 0;
+
+		foreach ($countries as $country)
+		{
+			$confirmed += $country->confirmed;
+			$deaths += $country->deaths;
+			$recovered += $country->recovered;
+		}
+
+		return view('home', [
+			'user'      => $user->where('id', auth()->id())->first(),
+			'confirmed' => $confirmed,
+			'deaths'    => $deaths,
+			'recovered' => $recovered,
+		]);
 	}
 }
