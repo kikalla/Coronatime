@@ -69,7 +69,14 @@ class CountryController extends Controller
 			$deaths += $country->deaths;
 			$recovered += $country->recovered;
 		}
-		$countries = Country::sortable()->paginate(count($country->all()));
+		if (request('search'))
+		{
+			$countries = $country->where('code', 'like', '%' . request('search') . '%')->sortable()->get();
+		}
+		else
+		{
+			$countries = $country->sortable()->get();
+		}
 		return view('countries', [
 			'user'      => $user->where('id', auth()->id())->first(),
 			'countries' => $countries,

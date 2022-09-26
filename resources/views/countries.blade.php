@@ -32,7 +32,7 @@
     </header>
     <div class="border-b-2 border-[#F6F6F7] mt-[1%]"></div>
     <section class="mx-[5%] mt-[2%] mob:mb-[5%] mob:mx-[0%]">
-        <h2 class="font-bold text-xl 2xl:text-4xl mb-[2%] mob:mb-[5%] mob:mx-[5%]">Worldwide Statistics</h2>
+        <h2 class="font-bold text-xl 2xl:text-4xl mb-[2%] mob:mb-[5%] mob:mr-[4%] mob:ml-[5%]">Worldwide Statistics</h2>
         <div class="flex">
             <div class="mr-[4%] mb-[2%] mob:mb-[5%] mob:mx-[5%]">
                 <a class="" href="/">Worldwide</a>
@@ -44,19 +44,30 @@
             </div>
         </div>
 
+        <form method="GET" action="#">
+            <div class="flex border rounded-lg 2xl:rounded-2xl border-[#E6E6E7] p-[0.8%] my-[1%] w-[20%] mob:w-auto mob:mb-[10px] mob:border-none">
+                <img class="mx-[3%] w-[10%] mob:w-[6%]" src="images/SearchVector.svg" alt="search">
+            <input type="text"
+                    name="search"
+                    placeholder="Search by country"
+                    class="w-[80%] focus:outline-none"
+                    value="{{ request('search') }}">
+            </div>
+            
+        </form>
 
         <table class="w-[100%] border border-[#F6F6F7]">
-        <thead class="text-left mob:text-[15px]">
+        <thead class="text-left mob:text-[14px]">
                 <tr class="bg-[#F6F6F7]">
-                    <th class="text-left p-[1%] w-[25%] mob:p-[2%]">@sortablelink('code','Location')</th>
-                    <th class="text-left p-[1%] w-[25%] mob:p-[2%]">@sortablelink('confirmed', 'New cases')</th>
-                    <th class="text-left p-[1%] w-[25%] mob:p-[2%]">@sortablelink('deaths', 'Deaths')</th>
-                    <th class="text-left p-[1%] w-[25%] mob:p-[2%]" >@sortablelink('recovered', 'Recovered')</th>
+                    <th class="text-left p-[1%] w-[25%] mob:p-[2%] whitespace-nowrap">@sortablelink('code','Location')</th>
+                    <th class="text-left p-[1%] w-[25%] mob:p-[2%] whitespace-nowrap">@sortablelink('confirmed', 'New cases')</th>
+                    <th class="text-left p-[1%] w-[25%] mob:p-[2%] whitespace-nowrap">@sortablelink('deaths', 'Deaths')</th>
+                    <th class="text-left p-[1%] w-[25%] mob:p-[2%] whitespace-nowrap" >@sortablelink('recovered', 'Recovered')</th>
                 </tr>
             </thead>
         </table>
 
-        <div class="overflow-y-auto lg:h-[320px] 2xl:h-[580px] mob:h-[430px]">
+        <div class="overflow-y-auto lg:h-[320px] 2xl:h-[580px] mob:h-[410px]">
             <table class="w-[100%] border border-[#F6F6F7]"> 
                 <tbody class="text-left">
 
