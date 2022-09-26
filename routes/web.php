@@ -31,5 +31,4 @@ Route::view('/', 'home')->name('home')->middleware('verified');
 Route::get('/', [CountryController::class, 'getSum'])->name('get-data')->middleware('verified');
 Route::view('/verify-first', 'mail.verify-email', )->name('verify-email');
 
-Route::get('api', [CountryController::class, 'getData']);
-Route::get('countries', [CountryController::class, 'postData'])->name('countries.show');
+Route::get('countries', [CountryController::class, 'postData'])->name('countries.show')->middleware('verified');
