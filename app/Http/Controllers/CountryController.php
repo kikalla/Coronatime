@@ -55,4 +55,27 @@ class CountryController extends Controller
 			'recovered' => $recovered,
 		]);
 	}
+
+	public function postData(User $user, Country $country)
+	{
+		$countries = $country->all();
+		$confirmed = 0;
+		$deaths = 0;
+		$recovered = 0;
+
+		foreach ($countries as $country)
+		{
+			$confirmed += $country->confirmed;
+			$deaths += $country->deaths;
+			$recovered += $country->recovered;
+		}
+
+		return view('countries', [
+			'user'      => $user->where('id', auth()->id())->first(),
+			'countries' => $countries,
+			'confirmed' => $confirmed,
+			'deaths'    => $deaths,
+			'recovered' => $recovered,
+		]);
+	}
 }

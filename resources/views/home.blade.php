@@ -21,7 +21,7 @@
             @endguest
             
             @auth
-            <form class="ml-[25%] mob:ml-[10%]" method="POST" action="{{route('user.logout')}}">
+            <form class="ml-[22%] mob:ml-[10%]" method="POST" action="{{route('user.logout')}}">
             @csrf
             <button type="submit">Logout</button>
             </form>
@@ -29,15 +29,15 @@
         </div>
     </header>
     <div class="border-b-2 border-[#F6F6F7] mt-[1%]"></div>
-    <section class="mx-[5%] mt-[5%]">
-        <h2 class="font-bold text-xl 2xl:text-4xl mb-[4%]">Worldwide Statistics</h2>
+    <section class="mx-[5%] mt-[2%] mob:mb-[5%]">
+        <h2 class="font-bold text-xl 2xl:text-4xl mb-[2%] mob:mb-[5%]">Worldwide Statistics</h2>
         <div class="flex">
             <div class="mr-[4%] mb-[5%]">
-                <a class="font-bold " href="/">Worldwide</a>
+                <a class="font-bold " href="">Worldwide</a>
                 <div class="border-b-4 border-black"></div>
             </div>
             <div>
-                <a class="" href="/">By country</a>
+                <a class="" href="{{route('countries.show')}}">By country</a>
                 <div class="border-b-4 border-black hidden"></div>
             </div>
         </div>
