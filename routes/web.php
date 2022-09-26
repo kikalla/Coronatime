@@ -32,4 +32,6 @@ Route::get('/', [CountryController::class, 'getSum'])->name('get-data')->middlew
 Route::view('/verify-first', 'mail.verify-email', )->name('verify-email');
 
 Route::get('api', [CountryController::class, 'getData']);
+Route::get('countries', [CountryController::class, 'sort']);
+
 Route::get('countries', [CountryController::class, 'postData'])->name('countries.show');

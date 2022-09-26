@@ -16,9 +16,9 @@ return new class extends Migration {
 			$table->id();
 			$table->string('code');
 			$table->json('name');
-			$table->text('confirmed');
-			$table->text('recovered');
-			$table->text('deaths');
+			$table->integer('confirmed');
+			$table->integer('recovered');
+			$table->integer('deaths');
 			$table->timestamps();
 		});
 	}

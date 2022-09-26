@@ -69,7 +69,7 @@ class CountryController extends Controller
 			$deaths += $country->deaths;
 			$recovered += $country->recovered;
 		}
-
+		$countries = Country::sortable()->paginate(count($country->all()));
 		return view('countries', [
 			'user'      => $user->where('id', auth()->id())->first(),
 			'countries' => $countries,
