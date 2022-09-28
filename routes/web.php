@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +17,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(UserController::class)->group(function () {
-	Route::post('register', 'store')->name('user.store');
+	Route::post('/register', 'store')->name('user.store');
 	Route::get('/verify', 'verifyUser')->name('user.verify');
 });
-Route::view('register', 'register')->name('user.create')->middleware('guest');
 
-Route::view('login', 'login')->name('login.show')->middleware('guest');
-Route::post('login', [LoginController::class, 'login'])->name('login')->middleware('guest');
-Route::post('logout', [LoginController::class, 'logout'])->name('user.logout')->middleware('auth');
-Route::view('confirmation', 'confirmation')->name('confirmation.show');
-Route::view('reset/password', 'reset-password')->name('reset-password.show');
-Route::get('/', function (User $user) {return view('home', ['user' => $user->where('id', auth()->id())->first()]); })->name('home')->middleware('verified');
-Route::view('/verify-first', 'mail.verify-email', )->name('verify-email');
+Route::middleware('guest')->group(function () {
+	Route::view('/register', 'register')->name('user.create');
+	Route::view('/login', 'login')->name('login.show');
+	Route::post('/login', [LoginController::class, 'login'])->name('login');
+});
+
+Route::middleware('verified')->group(function () {
+	Route::get('/', [CountryController::class, 'getSum'])->name('home');
+	Route::get('/countries', [CountryController::class, 'postData'])->name('countries.show');
+});
+
+Route::middleware('auth')->group(function () {
+	Route::view('/reset/password', 'reset-password')->name('reset-password.show');
+	Route::post('/logout', [LoginController::class, 'logout'])->name('user.logout');
+	Route::view('/confirmation', 'confirmation')->name('confirmation.show');
+	Route::view('/verify-first', 'mail.verify-email', )->name('verify-email');
+});

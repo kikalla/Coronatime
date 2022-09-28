@@ -15,13 +15,13 @@
                 <option value="en">En</option>
                 <option value="ka">Georgian</option>
             </select>
-            <h2 class="ml-[25%] mob:ml-[10%]">{{$user->username}}</h2>
+            <h2 class="ml-[25%] mob:ml-[10%]">{{$user}}</h2>
             @guest
             <a class="ml-[25%] mob:ml-[10%]" href="{{route('login.show')}}">Login</a>
             @endguest
             
             @auth
-            <form class="ml-[25%] mob:ml-[10%]" method="POST" action="{{route('user.logout')}}">
+            <form class="ml-[22%] mob:ml-[10%]" method="POST" action="{{route('user.logout')}}">
             @csrf
             <button type="submit">Logout</button>
             </form>
@@ -29,15 +29,15 @@
         </div>
     </header>
     <div class="border-b-2 border-[#F6F6F7] mt-[1%]"></div>
-    <section class="mx-[5%] mt-[5%]">
-        <h2 class="font-bold text-xl 2xl:text-4xl mb-[4%]">Worldwide Statistics</h2>
+    <section class="mx-[5%] mt-[2%] mob:mb-[5%]">
+        <h2 class="font-bold text-xl 2xl:text-4xl mb-[2%] mob:mb-[5%]">Worldwide Statistics</h2>
         <div class="flex">
             <div class="mr-[4%] mb-[5%]">
-                <a class="font-bold " href="/">Worldwide</a>
+                <a class="font-bold " href="">Worldwide</a>
                 <div class="border-b-4 border-black"></div>
             </div>
             <div>
-                <a class="" href="/">By country</a>
+                <a class="" href="{{route('countries.show')}}">By country</a>
                 <div class="border-b-4 border-black hidden"></div>
             </div>
         </div>
@@ -45,17 +45,17 @@
             <div class="w-[30%] h-[100%] bg-opacity-[8%] rounded-md bg-[#2029F3] flex flex-col justify-center items-center mob:w-[90%] mob:mb-[10px] mob:py-[3%] mob:h-[155px] ">
                 <img class="w-[30%]" src="images/Vector1.svg" alt="vector">
                 <p class="my-[4%]">New cases</p>
-                <p class="font-black text-3xl 2xl:text-5xl text-[#2029f3]">785.952</p>
+                <p class="font-black text-3xl 2xl:text-5xl text-[#2029f3]">{{$confirmed}}</p>
             </div>
             <div class="w-[30%] h-[100%] bg-opacity-[8%] rounded-md mx-[2%] bg-[#0FBA68] flex flex-col justify-center items-center mob:w-[90%] mob:mb-[10px] mob:py-[3%] mob:h-[155px] ">
                 <img class="w-[30%]" src="images/Vector2.svg" alt="vector">
                 <p class="my-[4%]">Recovered</p>
-                <p class="font-black text-3xl 2xl:text-5xl text-[#0FBA68]">785.952</p>
+                <p class="font-black text-3xl 2xl:text-5xl text-[#0FBA68]">{{$recovered}}</p>
             </div>
             <div class="w-[30%] h-[100%] bg-opacity-[8%] rounded-md bg-[#EAD621] flex flex-col justify-center items-center mob:w-[90%] mob:mb-[10px] mob:py-[3%] mob:h-[155px] ">
                 <img class="w-[30%]" src="images/Vector3.svg" alt="vector">
                 <p class="my-[4%]">Death</p>
-                <p class="font-black text-3xl 2xl:text-5xl text-[#EAD621]">785.952</p>
+                <p class="font-black text-3xl 2xl:text-5xl text-[#EAD621]">{{$deaths}}</p>
             </div>
         </div>
     </section>
