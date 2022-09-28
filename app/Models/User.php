@@ -16,5 +16,5 @@ class User extends Authenticatable implements MustVerifyEmail
 		'remember_token',
 	];
 
-	protected $guarded = [];
+	protected $guarded = ['id'];
 }

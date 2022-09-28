@@ -17,7 +17,7 @@
                 <option value="en">En</option>
                 <option value="ka">Georgian</option>
             </select>
-            <h2 class="ml-[25%] mob:ml-[10%]">{{$user->username}}</h2>
+            <h2 class="ml-[25%] mob:ml-[10%]">{{$user}}</h2>
             @guest
             <a class="ml-[25%] mob:ml-[10%]" href="{{route('login.show')}}">Login</a>
             @endguest

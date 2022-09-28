@@ -20,7 +20,7 @@ class GetData extends Command
 	 *
 	 * @var string
 	 */
-	protected $description = 'get data from API';
+	protected $description = 'get data from API, API about corona virus statistic';
 
 	/**
 	 * Execute the console command.
@@ -29,26 +29,19 @@ class GetData extends Command
 	 */
 	public function handle()
 	{
-		$countries = Http::get('https://devtest.ge/countries');
-		$data = json_decode($countries);
+		$countries = json_decode(Http::get('https://devtest.ge/countries'));
 
-		$codes = [];
-		foreach ($data as $country)
+		foreach ($countries as $country)
 		{
-			array_push($codes, $country->code);
-		}
-
-		array_map(function ($code, $country) {
-			$response = Http::post('https://devtest.ge/get-country-statistics', ['code' => $code]);
-			$decode = json_decode($response);
+			$response = json_decode(Http::post('https://devtest.ge/get-country-statistics', ['code' => $country->code]));
 
 			Country::create([
 				'code'      => $country->code,
 				'name'      => json_encode($country->name),
-				'confirmed' => $decode->confirmed,
-				'recovered' => $decode->recovered,
-				'deaths'    => $decode->deaths,
+				'confirmed' => $response->confirmed,
+				'recovered' => $response->recovered,
+				'deaths'    => $response->deaths,
 			]);
-		}, $codes, $data);
+		}
 	}
 }

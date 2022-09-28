@@ -10,7 +10,7 @@ class Country extends Model
 {
 	use HasFactory, Sortable;
 
-	protected $guarded = [];
+	protected $guarded = ['id'];
 
 	public $sortable = ['code', 'name', 'confirmed', 'recovered', 'deaths'];
 }

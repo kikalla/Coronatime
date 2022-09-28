@@ -3,56 +3,46 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
-use App\Models\User;
+use Illuminate\Contracts\View\View;
 
 class CountryController extends Controller
 {
-	public function getSum(User $user, Country $country)
+	public function getSum(): View
 	{
-		$countries = $country->all();
+		$user = auth()->user()->username;
+		$countries = country::all();
 
-		$confirmed = 0;
-		$deaths = 0;
-		$recovered = 0;
-
-		foreach ($countries as $country)
-		{
-			$confirmed += $country->confirmed;
-			$deaths += $country->deaths;
-			$recovered += $country->recovered;
-		}
+		$confirmed = collect($countries)->sum('confirmed');
+		$deaths = collect($countries)->sum('deaths');
+		$recovered = collect($countries)->sum('recovered');
 
 		return view('home', [
-			'user'      => $user->where('id', auth()->id())->first(),
+			'user'      => $user,
 			'confirmed' => $confirmed,
 			'deaths'    => $deaths,
 			'recovered' => $recovered,
 		]);
 	}
 
-	public function postData(User $user, Country $country)
+	public function postData(): View
 	{
-		$countries = $country->all();
-		$confirmed = 0;
-		$deaths = 0;
-		$recovered = 0;
+		$user = auth()->user()->username;
+		$countries = country::all();
 
-		foreach ($countries as $country)
-		{
-			$confirmed += $country->confirmed;
-			$deaths += $country->deaths;
-			$recovered += $country->recovered;
-		}
+		$confirmed = collect($countries)->sum('confirmed');
+		$deaths = collect($countries)->sum('deaths');
+		$recovered = collect($countries)->sum('recovered');
+
 		if (request('search'))
 		{
-			$countries = $country->where('code', 'like', '%' . request('search') . '%')->sortable()->get();
+			$countries = country::where('code', 'like', '%' . request('search') . '%')->sortable()->get();
 		}
 		else
 		{
-			$countries = $country->sortable()->get();
+			$countries = country::sortable()->get();
 		}
 		return view('countries', [
-			'user'      => $user->where('id', auth()->id())->first(),
+			'user'      => $user,
 			'countries' => $countries,
 			'confirmed' => $confirmed,
 			'deaths'    => $deaths,
