@@ -23,7 +23,6 @@
             line-height: 1.75rem;
             margin-bottom: 8%;
             margin-top: 20%;
-
         }
         body{
             font-size: 00.75rem;
@@ -82,9 +81,9 @@
     <section>
         <img src="{{ $message->embed(public_path() . '/images/Email-verification.png')}}" alt="title">
         <div>
-            <h2>Confirmation email</h2>
-            <p>click this button to verify your email</p>
-            <a href="http://127.0.0.1:8000/verify?code={{$email_data['verification_code']}}">VERIFY EMAIL</a>
+            <h2>Recover password</h2>
+            <p>click this button to recover a password</p>
+            <a href="{{$url}}">RECOVER PASSWORD</a>
         </div>
     </section>    
 </body>

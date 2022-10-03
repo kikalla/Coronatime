@@ -25,6 +25,7 @@ Route::middleware('guest')->group(function () {
 	Route::view('/register', 'register')->name('user.create');
 	Route::view('/login', 'login')->name('login.show');
 	Route::post('/login', [LoginController::class, 'login'])->name('login');
+	Route::view('/forgot-password', 'forgot-password')->name('forgot-password.show');
 });
 
 Route::middleware('verified')->group(function () {
@@ -33,8 +34,15 @@ Route::middleware('verified')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-	Route::view('/reset/password', 'reset-password')->name('reset-password.show');
 	Route::post('/logout', [LoginController::class, 'logout'])->name('user.logout');
-	Route::view('/confirmation', 'confirmation')->name('confirmation.show');
 	Route::view('/verify-first', 'mail.verify-email', )->name('verify-email');
 });
+
+Route::view('/confirmation', 'confirmation')->name('confirmation.show');
+Route::view('/reset-send', 'reset-send')->name('reset-send.show');
+
+Route::get('/reset-password/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
+
+Route::post('reset-password/{token}', [UserController::class, 'updatePassword']);
+
+Route::post('/forgot-password', [UserController::class, 'forgotPassword']);

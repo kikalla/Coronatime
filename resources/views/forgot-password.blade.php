@@ -9,11 +9,11 @@
 </head>
 <body class="2xl:text-2xl text-xs">
     <section class="flex flex-col items-center mt-[3%] px-[2%] mob:mx-[13%] mob:mt-[10%]">
-        <img class="w-[15%] mob:w-[50%] mob:mb-[10%]" src="/images/Coronatime.png" alt="title">
+        <img class="w-[15%] mob:w-[50%] mob:mb-[5%]" src="/images/Coronatime.png" alt="title">
         <div class="flex flex-col items-center">
-            <h2 class="font-extrabold text-center text-xl 2xl:text-4xl mb-[20%] mt-[60%]">Reset Password</h2>
+            <h2 class="font-extrabold text-center text-xl 2xl:text-4xl mb-[20%] mt-[60%] mob:mt-[30%]">Reset Password</h2>
 
-            <form class="w-[150%]" action="{{route('user.store')}}" method="POST">
+            <form class="w-[150%]" action="" method="POST">
                 @csrf
                 <div class="flex flex-col mb-[15%] mob:my-[7%]">
                     <label class="font-bold" for="email">Email</label>
