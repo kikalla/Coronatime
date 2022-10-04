@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function () {
 	Route::post('/register', 'store')->name('user.store');
 	Route::get('/verify', 'verifyUser')->name('user.verify');
+	Route::post('reset-password/{token}', 'updatePassword')->name('password.update');
+	Route::post('/forgot-password', 'forgotPassword')->name('mail-password-reset');
 });
 
 Route::middleware('guest')->group(function () {
@@ -40,9 +42,4 @@ Route::middleware('auth')->group(function () {
 
 Route::view('/confirmation', 'confirmation')->name('confirmation.show');
 Route::view('/reset-send', 'reset-send')->name('reset-send.show');
-
-Route::get('/reset-password/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
-
-Route::post('reset-password/{token}', [UserController::class, 'updatePassword']);
-
-Route::post('/forgot-password', [UserController::class, 'forgotPassword']);
+Route::get('/reset-password/{token}', function ($token) {return view('update-password', ['token' => $token]); })->name('password.reset');

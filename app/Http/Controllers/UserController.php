@@ -54,11 +54,6 @@ class UserController extends Controller
 			: back()->withErrors(['email' => __($status)]);
 	}
 
-	public function resetPassword($token)
-	{
-		return view('update-password', ['token' => $token]);
-	}
-
 	public function updatePassword(UpdatePasswordRequest $request)
 	{
 		$status = Password::reset(

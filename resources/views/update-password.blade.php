@@ -17,7 +17,7 @@
                 @csrf
                 
                 <div class="flex flex-col mb-[5%] mob:my-[7%]">
-                    <label class="font-bold" for="password">Password</label>
+                    <label class="font-bold" for="password">New Password</label>
                     <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="Enter New Password" type="password" name="password">
                     @error('password')
                     <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>

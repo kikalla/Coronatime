@@ -84,7 +84,7 @@
         <div>
             <h2>Confirmation email</h2>
             <p>click this button to verify your email</p>
-            <a href="http://127.0.0.1:8000/verify?code={{$email_data['verification_code']}}">VERIFY EMAIL</a>
+            <a href="{{env('BACK_URL')}}/verify?code={{$email_data['verification_code']}}">VERIFY EMAIL</a>
         </div>
     </section>    
 </body>
