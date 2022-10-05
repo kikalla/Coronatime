@@ -4,6 +4,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,5 @@ Route::middleware('auth')->group(function () {
 Route::view('/confirmation', 'confirmation')->name('confirmation.show');
 Route::view('/reset-send', 'reset-send')->name('reset-send.show');
 Route::get('/reset-password/{token}', function ($token) {return view('update-password', ['token' => $token]); })->name('password.reset');
+
+Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale-change');
