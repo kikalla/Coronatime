@@ -16,7 +16,7 @@
                 <option value="{{route('locale-change', 'en')}}">{{__('translation.english')}}</option>
                 <option value="{{route('locale-change', 'ka')}}">{{__('translation.georgian')}}</option>
             </select>
-        <h2 class="ml-[25%] mob:ml-[10%]">{{$user}}</h2>
+        <h2 class="ml-[20%] mob:ml-[10%]">{{$user}}</h2>
         <form class="ml-[22%] mob:ml-[10%]" method="POST" action="{{route('user.logout')}}">
         @csrf
         <button type="submit">{{__('translation.logout')}}</button>

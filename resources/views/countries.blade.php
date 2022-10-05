@@ -18,7 +18,7 @@
                 <option value="{{route('locale-change', 'en')}}">{{__('translation.english')}}</option>
                 <option value="{{route('locale-change', 'ka')}}">{{__('translation.georgian')}}</option>
             </select>
-            <h2 class="ml-[25%] mob:ml-[10%]">{{$user}}</h2>
+            <h2 class="ml-[20%] mob:ml-[10%]">{{$user}}</h2>
             <form class="ml-[22%] mob:ml-[10%]" method="POST" action="{{route('user.logout')}}">
             @csrf
             <button type="submit">{{__('translation.logout')}}</button>
@@ -66,16 +66,16 @@
             <table class="w-[100%] border border-[#F6F6F7]"> 
                 <tbody class="text-left">
 
-                    <tr class="border-y border-[#F6F6F7]">
-                        <td class="text-left mob:text-xs p-[1%] w-[25%] mob:p-[2%] ">{{__('translation.worldwide')}}</td>
+                    <tr class="border-y mob:text-xs border-[#F6F6F7]">
+                        <td class="text-left p-[1%] w-[25%] mob:p-[2%] ">{{__('translation.worldwide')}}</td>
                         <td class="text-left p-[1%] w-[25%] mob:p-[2%]">{{$confirmed}}</td>
                         <td class="text-left p-[1%] w-[25%] mob:p-[2%]">{{$deaths}}</td>
                         <td class="text-left p-[1%] w-[25%] mob:p-[2%]">{{$recovered}}</td>
                     </tr>
                    
                     @foreach($countries as $country)
-                    <tr class="border-y border-[#F6F6F7]">
-                        <td class="text-left p-[1%] w-[25%] mob:p-[2%]">{{$country->code}}</td>
+                    <tr class="border-y mob:text-xs border-[#F6F6F7]">
+                        <td class="text-left p-[1%] w-[25%] mob:p-[2%]">{{$country->name}}</td>
                         <td class="text-left p-[1%] w-[25%] mob:p-[2%]">{{$country->confirmed}}</td>
                         <td class="text-left p-[1%] w-[25%] mob:p-[2%]">{{$country->deaths}}</td>
                         <td class="text-left p-[1%] w-[25%] mob:p-[2%]">{{$country->recovered}}</td>
