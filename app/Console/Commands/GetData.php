@@ -34,10 +34,12 @@ class GetData extends Command
 		foreach ($countries as $country)
 		{
 			$response = json_decode(Http::post('https://devtest.ge/get-country-statistics', ['code' => $country->code]));
-
 			Country::create([
-				'code'      => $country->code,
-				'name'      => json_encode($country->name),
+				'code'        => $country->code,
+				'name'        => [
+					'ka'=> $country->name->ka,
+					'en'=> $country->name->en,
+				],
 				'confirmed' => $response->confirmed,
 				'recovered' => $response->recovered,
 				'deaths'    => $response->deaths,

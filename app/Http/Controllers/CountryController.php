@@ -35,7 +35,7 @@ class CountryController extends Controller
 
 		if (request('search'))
 		{
-			$countries = country::where('code', 'like', '%' . request('search') . '%')->sortable()->get();
+			$countries = country::where('name', 'like', '%' . request('search') . '%')->sortable()->get();
 		}
 		else
 		{
