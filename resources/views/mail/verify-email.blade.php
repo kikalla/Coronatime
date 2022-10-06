@@ -12,7 +12,7 @@
         <img class="w-[15%] mob:w-[50%] mob:mb-[10%]" src="/images/Coronatime.png" alt="title">
         <img class="w-[4%] mb-[3%] mt-[12%] mob:w-[20%] mob:mb-[10%]" src="/images/Checked.png" alt="title">
         <div class="flex flex-col items-center">
-            <p>{{__('translation.verify_first')}}</p>
+            <p>{{__('mainTranslation.verify_first')}}</p>
         </div>
         @auth
             <form method="POST" action="{{route('user.logout')}}">

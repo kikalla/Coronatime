@@ -12,7 +12,7 @@
         <img class="w-[15%] mob:w-[50%] mob:mb-[10%]" src="/images/Coronatime.png" alt="title">
         <img class="w-[4%] mb-[3%] mt-[12%] mob:w-[20%] mob:mb-[10%]" src="/images/Checked.png" alt="title">
         <div class="flex flex-col items-center">
-            <p>{{__('translation.sent_reset_password')}}</p>
+            <p>{{__('mainTranslation.sent_reset_password')}}</p>
         </div>
     </section>    
 </body>
