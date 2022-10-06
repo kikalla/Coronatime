@@ -11,7 +11,9 @@ class LoginController extends Controller
 	{
 		$fieldType = filter_var($request->login_id, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-		if (auth()->attempt([$fieldType => $request->login_id, 'password' => $request->password]))
+		$remember = $request->has('remember') ? true : false;
+
+		if (auth()->attempt([$fieldType => $request->login_id, 'password' => $request->password], $remember))
 		{
 			return redirect('/');
 		}

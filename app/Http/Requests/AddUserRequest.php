@@ -15,7 +15,7 @@ class AddUserRequest extends FormRequest
 	{
 		return [
 			'username'              => 'required|min:3|unique:users,username',
-			'email'                 => 'required|unique:users,email',
+			'email'                 => 'required|unique:users,email|email',
 			'password'              => 'min:3|confirmed|required|required_with:password_confirmation',
 			'password_confirmation' => 'same:password',
 		];

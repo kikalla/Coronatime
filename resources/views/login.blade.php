@@ -40,7 +40,7 @@
                     <a href="{{route('forgot-password.show')}}" class="text-[#2029F3] font-extrabold whitespace-nowrap">{{__('loginTranslation.forgot_password?')}}</a>
                 </div>
                 
-                <button class="hover:scale-[99%] w-[100%] text-white font-extrabold rounded-xl bg-[#0FBA68] p-[3%] mb-[3%] mob:my-[5%] mob:p-[5%]" type="submit">{{__('loginTranslation.sign_up')}}</button>
+                <button class="hover:scale-[99%] w-[100%] text-white font-extrabold rounded-xl bg-[#0FBA68] p-[3%] mb-[3%] mob:my-[5%] mob:p-[5%]" type="submit">{{__('loginTranslation.login')}}</button>
             </form>
 
             <div class="flex justify-center whitespace-nowrap">
