@@ -15,5 +15,5 @@ class Country extends Model
 
 	public $translatable = ['name'];
 
-	public $sortable = ['code', 'name' . 'ka', 'name' . 'en', 'confirmed', 'recovered', 'deaths'];
+	public $sortable = ['code', 'name', 'confirmed', 'recovered', 'deaths'];
 }
