@@ -33,12 +33,12 @@ class GetData extends Command
 
 		foreach ($countries as $country)
 		{
-			$createdCountry = Country::where('code', $country->code)->first();
 			$response = json_decode(Http::post('https://devtest.ge/get-country-statistics', ['code' => $country->code]));
-			if ($createdCountry)
-			{
-				$createdCountry->update([
+			Country::updateOrCreate(
+				[
 					'code'        => $country->code,
+				],
+				[
 					'name'        => [
 						'ka'=> $country->name->ka,
 						'en'=> $country->name->en,
@@ -46,21 +46,8 @@ class GetData extends Command
 					'confirmed' => $response->confirmed,
 					'recovered' => $response->recovered,
 					'deaths'    => $response->deaths,
-				]);
-			}
-			else
-			{
-				Country::create([
-					'code'        => $country->code,
-					'name'        => [
-						'ka'=> $country->name->ka,
-						'en'=> $country->name->en,
-					],
-					'confirmed' => $response->confirmed,
-					'recovered' => $response->recovered,
-					'deaths'    => $response->deaths,
-				]);
-			}
+				]
+			);
 		}
 	}
 }
