@@ -11,22 +11,22 @@
     <section class="flex flex-col items-center mt-[3%] px-[2%] mob:mx-[13%] mob:mt-[10%]">
         <img class="w-[15%] mob:w-[50%] mob:mb-[5%]" src="/images/Coronatime.png" alt="title">
         <div class="flex flex-col items-center w-[30%] mob:w-[100%]">
-            <h2 class="font-extrabold text-center text-xl 2xl:text-4xl mb-[15%] mt-[30%] mob:mt-[20%]">{{__('translation.reset_password')}}</h2>
+            <h2 class="font-extrabold text-center text-xl 2xl:text-4xl mb-[15%] mt-[30%] mob:mt-[20%]">{{__('mainTranslation.reset_password')}}</h2>
 
             <form class="w-[100%]" action="" method="POST">
                 @csrf
                 
                 <div class="flex flex-col mb-[5%] mob:my-[7%]">
-                    <label class="font-bold" for="password">{{__('translation.new_password')}}</label>
-                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('translation.enter_new_Password')}}" type="password" name="password">
+                    <label class="font-bold" for="password">{{__('mainTranslation.new_password')}}</label>
+                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('mainTranslation.enter_new_Password')}}" type="password" name="password">
                     @error('password')
                     <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="flex flex-col mb-[5%] mob:my-[7%]">
-                    <label class="font-bold" for="password_confirmation">{{__('translation.repeat_password')}}</label>
-                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('translation.repeat_password')}}" type="password" name="password_confirmation">
+                    <label class="font-bold" for="password_confirmation">{{__('registerTranslation.repeat_password')}}</label>
+                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('registerTranslation.repeat_password')}}" type="password" name="password_confirmation">
                     @error('password_confirmation')
                     <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>
                     @enderror
@@ -40,7 +40,7 @@
                     <input type="text" name="email" value="{{request('email')}}">
                 </div>
 
-                <button class="hover:scale-[99%] w-[100%] text-white font-extrabold rounded-xl bg-[#0FBA68] p-[3%] mb-[3%] mob:my-[5%] mob:p-[5%]" type="submit">{{__('translation.save')}}</button>
+                <button class="hover:scale-[99%] w-[100%] text-white font-extrabold rounded-xl bg-[#0FBA68] p-[3%] mb-[3%] mob:my-[5%] mob:p-[5%]" type="submit">{{__('mainTranslation.save')}}</button>
             </form>
         </div>
     </section>    
