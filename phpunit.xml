@@ -15,7 +15,16 @@
     <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">./app</directory>
+            <file>./app/Http/Middleware/VerifyEmail.php</file>
         </include>
+        <exclude>
+            <directory>./app/Http/Middleware</directory>
+            <file>./app/Http/Controllers/Controller.php</file>
+            <file>./app/Console/Kernel.php</file>
+            <file>./app/Http/Kernel.php</file>
+            <directory>./app/Providers</directory>
+            <directory>./app/Exceptions</directory>
+        </exclude>
     </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
