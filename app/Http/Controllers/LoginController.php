@@ -15,7 +15,7 @@ class LoginController extends Controller
 		{
 			return redirect('/');
 		}
-		return redirect(route('login.show'));
+		return redirect(route('login.show'))->with(['error' => 'Password is incorrect']);
 	}
 
 	public function logout(): RedirectResponse

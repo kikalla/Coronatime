@@ -30,6 +30,9 @@
                     @error('password')
                     <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>
                     @enderror
+                    @if ($message = Session::get('error'))
+                        <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>
+                    @endif
                 </div>
 
                 <div class="flex items-center justify-between my-[5%]">
