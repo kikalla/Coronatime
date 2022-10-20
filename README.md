@@ -32,9 +32,9 @@ Coronatime is website where you can watch covid statistic, daily updated informa
 #
 ### Getting Started
 <br>
-1\. First of all you need to clone E Space repository from github:
+1\. First of all you need to clone Coronatime repository from github:
 ```sh
-git clone https://github.com/RedberryInternship/giorgi-kikadze-movie-quotes.git
+git clone https://github.com/RedberryInternship/giorgi-kikadze-coronatime.git
 ```
 
 2\. Next step requires you to run *composer install* in order to install all the dependencies.
