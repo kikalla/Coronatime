@@ -6,14 +6,16 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use App\Models\Country;
 
-class GetData extends Command
+class GetCountriesDataFromApi extends Command
 {
+	#TODO: შესაბამისი სახელი დავარქვათ
+
 	/**
 	 * The name and signature of the console command.
 	 *
 	 * @var string
 	 */
-	protected $signature = 'get:data';
+	protected $signature = 'get:countriesDataFromApi';
 
 	/**
 	 * The console command description.

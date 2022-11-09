@@ -73,4 +73,9 @@ class UserController extends Controller
 			? redirect()->route('login')->with('status', __($status))
 			: back()->withErrors(['email' => [__($status)]]);
 	}
+
+	public function resetPassword($token)
+	{
+		return view('update-password', ['token' => $token]);
+	}
 }

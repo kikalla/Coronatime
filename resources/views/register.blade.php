@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coronatime</title>
 </head>
 <body class="flex 2xl:text-2xl text-xs">
     <section class="flex flex-col mt-[3%] mr-[20%] ml-[10%] w-[52%] px-[2%] mob:mx-[13%] mob:w-[100%] mob:mt-[10%]">
@@ -16,24 +16,24 @@
 
             <form action="" method="POST">
                 @csrf
-                <div class="flex flex-col my-[2%] mob:my-[7%]">
+                <div class="flex flex-col my-[6%] mob:my-[7%]">
                     <label class="font-bold" for="username">{{__('registerTranslation.username')}}</label>
-                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('registerTranslation.enter_username')}}" type="text" name="username">
+                    <input value="{{ old('username') }}"  class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('registerTranslation.enter_username')}}" type="text" name="username">
                     <p class="text-[11px] 2xl:text-xl text-[#808189]">{{__('registerTranslation.username_unique')}}</p>
                     @error('username')
                     <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="flex flex-col my-[2%] mob:my-[7%]">
+                <div class="flex flex-col my-[6%] mob:my-[7%]">
                     <label class="font-bold" for="email">{{__('registerTranslation.email')}}</label>
-                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('registerTranslation.enter_email')}}" type="text" name="email">
+                    <input value="{{ old('email') }}" class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('registerTranslation.enter_email')}}" type="text" name="email">
                     @error('email')
                     <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="flex flex-col my-[2%] mob:my-[7%]">
+                <div class="flex flex-col my-[6%] mob:my-[7%]">
                     <label class="font-bold" for="password">{{__('loginTranslation.password')}}</label>
                     <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('loginTranslation.fill_password')}}" type="password" name="password">
                     @error('password')
@@ -41,7 +41,7 @@
                     @enderror
                 </div>
 
-                <div class="flex flex-col my-[2%] mob:my-[7%]">
+                <div class="flex flex-col my-[6%] mob:my-[7%]">
                     <label class="font-bold" for="password_confirmation">{{__('registerTranslation.repeat_password')}}</label>
                     <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('registerTranslation.repeat_password')}}" type="password" name="password_confirmation">
                     @error('password_confirmation')

@@ -24,7 +24,7 @@ class CountryController extends Controller
 		]);
 	}
 
-	public function postData(): View
+	public function searchAndDisplayCountries(): View
 	{
 		$user = auth()->user()->username;
 		$countries = country::all();

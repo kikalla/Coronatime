@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coronatime</title>
 </head>
 <body class="2xl:text-3xl text-base">
     <header class="flex justify-between mx-[5%] mt-[2%] mob:my-[4%] mob:justify-start ">
@@ -36,6 +36,8 @@
                 <div class="border-b-4 border-black hidden"></div>
             </div>
         </div>
+        <div class="w-[100%] border-b-2 border-[#F6F6F7] relative 2xl:bottom-[85px] bottom-[60px] mob:bottom-[19px]"></div>
+
         <div class="flex items-center justify-center 2xl:h-[300px] lg:h-[200px] mob:flex-col">
             <div class="w-[30%] h-[100%] bg-opacity-[8%] rounded-md bg-[#2029F3] flex flex-col justify-center items-center mob:w-[90%] mob:mb-[10px] mob:py-[3%] mob:h-[155px] ">
                 <img class="w-[30%]" src="images/Vector1.svg" alt="vector">
