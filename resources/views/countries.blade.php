@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coronatime</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
@@ -38,6 +38,7 @@
                 <div class="border-b-4 border-black"></div>
             </div>
         </div>
+        <div class="w-[100%] border-b-2 border-[#F6F6F7] relative 2xl:bottom-[30px] bottom-[20px] mob:bottom-[16px]"></div>
 
         <form method="GET" action="#">
             <div class="flex border rounded-lg 2xl:rounded-2xl border-[#E6E6E7] p-[0.8%] my-[1%] w-[20%] mob:w-auto mob:mb-[10px] mob:border-none">
@@ -54,17 +55,17 @@
         <table class="w-[100%] border border-[#F6F6F7]">
         <thead class="text-left mob:text-[14px]">
                 <tr class="bg-[#F6F6F7]">
-                    <th class="mob:text-xs text-left p-[1%] w-[19%]  whitespace-nowrap">@sortablelink('code', __('mainTranslation.by_country'))</th>
-                    <th class="mob:text-xs text-left p-[1%] w-[22%]  whitespace-nowrap">@sortablelink('confirmed', __('mainTranslation.new_cases'))</th>
-                    <th class="mob:text-xs text-left p-[1%] w-[23%]  whitespace-nowrap">@sortablelink('deaths', __('mainTranslation.death'))</th>
-                    <th class="mob:text-xs text-left p-[1%] w-[25%]  whitespace-nowrap" >@sortablelink('recovered', __('mainTranslation.recovered'))</th>
+                    <th class="mob:text-xs text-left p-[1%] w-[19%] text-sm font-semibold whitespace-nowrap">@sortablelink('code', __('mainTranslation.by_country'))</th>
+                    <th class="mob:text-xs text-left p-[1%] w-[22%] text-sm font-semibold whitespace-nowrap">@sortablelink('confirmed', __('mainTranslation.new_cases'))</th>
+                    <th class="mob:text-xs text-left p-[1%] w-[23%] text-sm font-semibold whitespace-nowrap">@sortablelink('deaths', __('mainTranslation.death'))</th>
+                    <th class="mob:text-xs text-left p-[1%] w-[25%] text-sm font-semibold whitespace-nowrap" >@sortablelink('recovered', __('mainTranslation.recovered'))</th>
                 </tr>
             </thead>
         </table>
 
         <div class="overflow-y-auto lg:h-[320px] 2xl:h-[580px] mob:h-[410px]">
             <table class="w-[100%] border border-[#F6F6F7]"> 
-                <tbody class="text-left">
+                <tbody class="text-left text-sm font-normal">
 
                     <tr class="border-y mob:text-xs border-[#F6F6F7]">
                         <td class="text-left p-[1%] w-[25%] mob:p-[2%] ">{{__('mainTranslation.worldwide')}}</td>

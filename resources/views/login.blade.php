@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coronatime</title>
 </head>
 <body class="flex 2xl:text-2xl text-xs">
     <section class="flex flex-col mt-[3%] mr-[20%] ml-[10%] w-[52%] px-[2%] mob:mx-[13%] mob:w-[100%] mob:mt-[10%]">
@@ -18,13 +18,13 @@
                 @csrf
                 <div class="flex flex-col my-[5%] mob:my-[7%]">
                     <label class="font-bold" for="login_id">{{__('loginTranslation.email_username')}}</label>
-                    <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('loginTranslation.enter_email_username')}}" type="text" name="login_id">
+                    <input value="{{ old('login_id') }}" class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('loginTranslation.enter_email_username')}}" type="text" name="login_id">
                     @error('login_id')
                     <p class="text-red-500 2xl:text-xl text-[11px]">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="flex flex-col my-[5%] mob:my-[7%]">
+                <div class="flex flex-col my-[7%] mob:my-[7%]">
                     <label class="font-bold" for="password">{{__('loginTranslation.password')}}</label>
                     <input class="outline-none my-[1%] p-[3%] mob:p-[5%] border rounded-xl border-[#808189]" placeholder="{{__('loginTranslation.fill_password')}}" type="password" name="password">
                     @error('password')

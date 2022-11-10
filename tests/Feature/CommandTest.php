@@ -11,6 +11,6 @@ class CommandTest extends TestCase
 
 	public function test_command_must_get_data_from_api()
 	{
-		$this->artisan('get:data')->assertExitCode(0);
+		$this->artisan('get:countriesInformation')->assertExitCode(0);
 	}
 }

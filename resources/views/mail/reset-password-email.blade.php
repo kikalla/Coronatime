@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coronatime</title>
 </head>
 <body style=" font-size: 00.75rem;
             line-height: 1rem;">
     <section style="display: inline-block;
-            align-items: center;">
-        <img style="display:block;" src="{{ $message->embed(public_path() . '/images/Email-verification.png')}}" alt="title">
+            align-items: center; width: 100%">
+        <div style="width: 40%; margin: auto">
+            <img style="display:block; width: 100%" src="{{ $message->embed(public_path() . '/images/Email-verification.png')}}" alt="title">
         <div style="display: inline-block;
             vertical-align: middle;
             align-items: center;
@@ -31,6 +32,7 @@
             background-color: #0FBA68;
             padding: 4%;
             margin-top: 8%;" href="{{$url}}">RECOVER PASSWORD</a>
+        </div>
         </div>
     </section>
 </body>
