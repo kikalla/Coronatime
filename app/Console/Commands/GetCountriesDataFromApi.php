@@ -8,14 +8,12 @@ use App\Models\Country;
 
 class GetCountriesDataFromApi extends Command
 {
-	#TODO: შესაბამისი სახელი დავარქვათ
-
 	/**
 	 * The name and signature of the console command.
 	 *
 	 * @var string
 	 */
-	protected $signature = 'get:countriesDataFromApi';
+	protected $signature = 'get:countries-data-from-api';
 
 	/**
 	 * The console command description.
